@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/pizza"
+    username: "postgres"
+    password: 123
