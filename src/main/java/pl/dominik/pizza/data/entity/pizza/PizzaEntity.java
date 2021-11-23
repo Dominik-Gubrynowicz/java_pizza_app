@@ -1,6 +1,9 @@
 package pl.dominik.pizza.data.entity.pizza;
 
+import pl.dominik.pizza.data.entity.size.SizeEntity;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "pizzas")
@@ -12,6 +15,9 @@ public class PizzaEntity {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "pizza_id")
+    private Set<SizeEntity> sizes;
 
     public String getName() {
         return name;

@@ -1,9 +1,11 @@
 package pl.dominik.pizza.data.entity.order;
 
+import pl.dominik.pizza.data.entity.ordersize.OrdersSizesEntity;
 import pl.dominik.pizza.domain.model.StatusType;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -25,6 +27,9 @@ public class OrderEntity {
     @Column(name = "floor")
     private String floor;
 
+    @Column(name = "token")
+    private String token;
+
     @Column(name = "status")
     private StatusType status;
 
@@ -39,4 +44,7 @@ public class OrderEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "expected_at")
     private Date expectedAt;
+
+    @OneToMany(mappedBy = "order_id")
+    private Set<OrdersSizesEntity> orderSizes;
 }
